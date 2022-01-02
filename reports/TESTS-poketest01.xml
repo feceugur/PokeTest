@@ -1,0 +1,28 @@
+<testsuite name="poketest01.Visibility Tests" tests="1" errors="1" failures="0" skipped="0" time="0.000612" timestamp="2022-01-02T13:20:42.564472" hostname="fece-Lenovo-ideapad-320-15IKB"><testcase classname="poketest01.Visibility Tests" name="Logo Verification" status="failed" time="0.000612"><error type="AttributeError" message="'Context' object has no attribute 'browser'">
+<![CDATA[
+Failing step: Given Visit PokeDex ... failed in 0.001s
+Location: features/poketest01.feature:5
+Traceback (most recent call last):
+  File "/home/fece/PycharmProjects/PokeTest/venv/lib/python3.9/site-packages/behave/model.py", line 1329, in run
+    match.run(runner.context)
+  File "/home/fece/PycharmProjects/PokeTest/venv/lib/python3.9/site-packages/behave/matchers.py", line 98, in run
+    self.func(context, *args, **kwargs)
+  File "features/steps/poketest01_steps.py", line 7, in step
+    context.browser.get('https://pokedex-react-mui.netlify.app/')
+  File "/home/fece/PycharmProjects/PokeTest/venv/lib/python3.9/site-packages/behave/runner.py", line 321, in __getattr__
+    raise AttributeError(msg)
+AttributeError: 'Context' object has no attribute 'browser'
+]]>
+</error><system-out>
+<![CDATA[
+@scenario.begin
+
+  @smoke
+  Scenario: Logo Verification
+    Given Visit PokeDex ... failed in 0.001s
+    Then logo should be displayed ... skipped in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase></testsuite>
