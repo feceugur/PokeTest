@@ -1,33 +1,34 @@
-<testsuite name="features.poketest01.Visibility Tests" tests="3" errors="0" failures="0" skipped="0" time="96.791682" timestamp="2022-01-02T14:26:35.125537" hostname="fece-Lenovo-ideapad-320-15IKB"><testcase classname="features.poketest01.Visibility Tests" name="Logo Verification" status="passed" time="5.55345"><system-out>
+<testsuite name="features.poketest01.Visibility Tests" tests="3" errors="0" failures="0" skipped="0" time="0.217711" timestamp="2022-01-02T17:38:03.256506" hostname="fece-Lenovo-ideapad-320-15IKB"><testcase classname="features.poketest01.Visibility Tests" name="Logo Verification" status="passed" time="0.061815"><system-out>
 <![CDATA[
 @scenario.begin
 
   @smoke
   Scenario: Logo Verification
-    Given Visit PokeDex ... passed in 5.472s
-    Then logo should be displayed ... passed in 0.082s
+    Then logo should be displayed ... passed in 0.062s
 
 @scenario.end
 --------------------------------------------------------------------------------
 ]]>
-</system-out></testcase><testcase classname="features.poketest01.Visibility Tests" name="Buttons Visibility" status="passed" time="3.587169"><system-out>
+</system-out></testcase><testcase classname="features.poketest01.Visibility Tests" name="Buttons Visibility" status="passed" time="0.128277"><system-out>
 <![CDATA[
 @scenario.begin
+
+  @button
   Scenario: Buttons Visibility
-    Given Visit PokeDex ... passed in 3.448s
-    Then themeSwitch should be displayed ... passed in 0.042s
-    Then github button should be displayed ... passed in 0.023s
-    Then filter items should be displayed ... passed in 0.074s
+    Then themeSwitch should be displayed ... passed in 0.030s
+    Then github button should be displayed ... passed in 0.021s
+    Then filter items should be displayed ... passed in 0.077s
 
 @scenario.end
 --------------------------------------------------------------------------------
 ]]>
-</system-out></testcase><testcase classname="features.poketest01.Visibility Tests" name="Poke Visibility" status="passed" time="87.651063"><system-out>
+</system-out></testcase><testcase classname="features.poketest01.Visibility Tests" name="Poke Visibility" status="passed" time="0.027619"><system-out>
 <![CDATA[
 @scenario.begin
+
+  @pokes
   Scenario: Poke Visibility
-    Given Visit PokeDex ... passed in 3.443s
-    Then All pokes should be displayed ... passed in 84.208s
+    Then All pokes should be displayed ... passed in 0.028s
 
 @scenario.end
 --------------------------------------------------------------------------------

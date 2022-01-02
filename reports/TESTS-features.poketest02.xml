@@ -1,0 +1,25 @@
+<testsuite name="features.poketest02.Buttons Functionality Tests" tests="2" errors="0" failures="0" skipped="0" time="18.567277" timestamp="2022-01-02T17:38:21.857310" hostname="fece-Lenovo-ideapad-320-15IKB"><testcase classname="features.poketest02.Buttons Functionality Tests" name="Buttons Functionality" status="passed" time="17.354497"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @funcButton @button
+  Scenario: Buttons Functionality
+    Given themeSwitch should be functional ... passed in 0.469s
+    Then gitButton should be functional ... passed in 7.968s
+    Then filter items should be functional ... passed in 8.917s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="features.poketest02.Buttons Functionality Tests" name="Pokes Functionality" status="passed" time="1.212779"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @infoButton @pokes
+  Scenario: Pokes Functionality
+    Then pokes infoButton should be functional ... passed in 1.213s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase></testsuite>
