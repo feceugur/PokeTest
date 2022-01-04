@@ -3,7 +3,7 @@
 ![alt text](https://www.freeiconspng.com/uploads/pikachu-png-transparent-0.png)
 
 This project was written for UI testing of 'https://pokedex-react-mui.netlify.app/'. The TestCase document is in the `TestCaseDocument.pdf` file.
-###Install Docker for Ubuntu 
+### Install Docker for Ubuntu 
  - sudo apt install docker.io
  - sudo apt install docker-compose
  
