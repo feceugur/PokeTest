@@ -1,15 +1,15 @@
 Feature: Visibility Tests
 
-  @smoke
+  @smoke @testt
   Scenario: Logo Verification
     Then logo should be displayed
 
-  @button
+  @button @testt
   Scenario: Buttons Visibility
     Then themeSwitch should be displayed
     Then github button should be displayed
     Then filter items should be displayed
 
-  @pokes
+  @pokes @testt
   Scenario: Poke Visibility
     Then All pokes should be displayed

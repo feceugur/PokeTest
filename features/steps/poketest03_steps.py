@@ -13,7 +13,7 @@ import os
 import time
 from selenium.webdriver.common.keys import Keys
 from requests import get
-from selenium.webdriver.support.ui import Select
+
 
 @When('Selecting "{region}"')
 def select_region(context, region):
@@ -56,28 +56,31 @@ def list_type(context, byType):
     assert len(context.browser.find_elements_by_xpath(path)) > 0
 
 
-@When('searching pokes should be displayed')
-def search_pokes(context):
+@When('searching pokes should be displayed for "{region}" from "{minVal}')
+def search_pokes(context, region, minVal):
+    path = '//*[@id="root"]/div[2]/div[2]/div[1]/select/option[' + str(region) + ']'
+    context.browser.find_element_by_xpath(path).click()
+    time.sleep(3)
+
     total_count = get('https://pokeapi.co/api/v2/pokemon?offset=0&limit=1').json()["count"]
-    pokemons = get('https://pokeapi.co/api/v2/pokemon?offset=0&limit={total}'.format(total=total_count)).json()
+    api_path = 'https://pokeapi.co/api/v2/pokemon?offset=' + str(minVal) + '&limit={total}'
+    pokemons = get(api_path.format(total=total_count)).json()
 
     get_pokemons_names = [pokemon["name"] for pokemon in pokemons["results"]]
 
-    menu = Select(context.browser.find_element_by_xpath('//*[@id="root"]/div[2]/div[2]/div[1]/select'))
-    menu_options = [item.get_attribute("value") for item in menu.options]
-
-    for region in menu_options:
-        options = Select(context.browser.find_element_by_xpath('//*[@id="root"]/div[2]/div[2]/div[1]/select'))
-        options.select_by_value(region)
-        search_box = WebDriverWait(context.browser, 10).until(
-            EC.presence_of_element_located((By.XPATH, '//*[@id="root"]/div[2]/div[2]/div[4]/input'))
-        )
+    search_box = context.browser.find_element_by_xpath('//*[@id="root"]/div[2]/div[2]/div[4]/input')
+    search_box.clear()
+    for pokemon_name in get_pokemons_names:
+        search_box.send_keys(pokemon_name)
         search_box.clear()
-        for pokemon_name in get_pokemons_names:
-            search_box.send_keys(pokemon_name)
+        time.sleep(1)
+        try:
+            result = context.browser.find_element_by_class_name("poke__name").text
             try:
-                result = context.browser.find_element_by_class_name("poke__name").text
                 assert result.lower() == pokemon_name.lower()
-            except NoSuchElementException:
-                print("{} is not found in {}".format(pokemon_name, region))
-            search_box.clear()
+            except AssertionError:
+                print("Pokemon name is not correct {}".format(result))
+        except NoSuchElementException:
+            nopoke = context.browser.find_element_by_class_name('no__data noselect').text
+            if nopoke is "No such Pokémon in this region :/":
+                print("No such Pokémon in this region :/")

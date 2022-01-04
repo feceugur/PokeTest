@@ -1,6 +1,6 @@
 Feature: App Functionality Tests
 
-  @region
+  @region @testt
   Scenario Outline: Region Filter Test
     When Selecting "<region>"
     Then Items should be listed "<minVal>" to "<maxVal>"
@@ -15,7 +15,7 @@ Feature: App Functionality Tests
       | 7  |722     |809     |
       | 8  |810     |898     |
 
-  @types
+  @types @testt
   Scenario Outline: Type filter test
     When Selecting of "<types>"
     Then Items should be listed "<byType>"
@@ -40,9 +40,20 @@ Feature: App Functionality Tests
       |18     |steel    |
       |19     |water    |
 
-    @search
-    Scenario: Search test
-      When searching pokes should be displayed
+    @search @testt
+    Scenario Outline: Search test
+      When searching pokes should be displayed for "<region>" from "<minVal>"
+      Examples:
+        | region | minVal |
+        | 1  |1       |
+        | 2  |152     |
+        | 3  |252     |
+        | 4  |387     |
+        | 5  |495     |
+        | 6  |650     |
+        | 7  |722     |
+        | 8  |810     |
+
 
 
 
