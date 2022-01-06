@@ -1,7 +1,6 @@
 ## UI test for PokeDex
 
-![alt text](https://www.freeiconspng.com/uploads/pikachu-png-transparent-0.png | width=100)
-![](https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png | width=100)
+<img src="https://www.freeiconspng.com/uploads/pikachu-png-transparent-0.png" width = 300>
 
 This project was written for UI testing of 'https://pokedex-react-mui.netlify.app/'. The TestCase document is in the `TestCaseDocument.pdf` file.
 ### Install Docker for Ubuntu 
